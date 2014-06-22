@@ -1,0 +1,162 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "/smart-api",
+  "produces": [
+    "application/octet-stream"
+  ],
+  "apis": [
+    {
+      "path": "user/login",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "Vai autenticar o usuário no sistema",
+          "type": "UserProto",
+          "nickname": "login",
+          "parameters": [
+            {
+              "name": "body",
+              "description": "Objeto que irá conter os dados do usuário. Atritubos enviados nesta operação. (email, password)",
+              "required": true,
+              "type": "UserProto",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "message": "Quando e-mail e senha não coincidirem com o que está armazenado"
+            },
+			{
+              "code": 200,
+              "message": "retorna Response class"
+            }
+
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/user",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Vai retornar os usuários disponíveis no sistema",
+		  "notes": "UsersProto contém um atributo que irá se repetir de acordo com número de ocorrências retornadas. Ver: http://koti.kapsi.fi/jpa/nanopb/docs/concepts.html",
+          "type": "UsersProto",
+          "nickname": "retrieveUseres",
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Enviar mensagem de erro"
+            },
+			{
+              "code": 404,
+              "message": "Não existem usuários para ser retornados"
+            },
+			{
+              "code": 200,
+              "message": "retornar Response Class"
+            }
+          ]
+        }, 
+        {
+          "method": "POST",
+          "summary": "Adiciona um novo usuário no sistema",
+          "type": "void",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com todos os dados preenchidos para inserção",
+              "required": true,
+              "type": "UserProto",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "createUSer",
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Enviar mensagem de erro"
+            },
+			{
+              "code": 409,
+              "message": "Caso o usuário que está sendo inserido já exista"
+            },
+			{
+              "code": 200,
+              "message": "Sem mensagem a retornar"
+            }
+          ]
+        },
+        {
+          "method": "PUT",
+          "summary": "Atualiza um usuário existente",
+          "type": "void",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com todos os dados preenchidos para atualização",
+              "required": true,
+              "type": "UserProto",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "createUSer",
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Enviar mensagem de erro"
+            },
+			{
+              "code": 409,
+              "message": "Caso o usuário que está sendo inserido já exista"
+            },
+			{
+              "code": 200,
+              "message": "Sem mensagem a retornar"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "UsersProto" : {
+		"id" : "UsersProto",
+		"properties": {
+			"userProto": {
+				"type" : "UserProto",
+				"notes" : "blala"
+			}
+		}
+	},
+    "UserProto": {
+      "id": "UserProto",
+      "properties": {
+        "email": {
+          "type": "char"
+        },
+        "password": {
+          "type": "char"
+        },
+		"name" :{
+			"type": "char"
+		},
+		"isMaster" :{
+			"type": "char"
+		},
+		"isBloqued" :{
+			"type": "char"
+		},
+		"securityQuestion" :{
+			"type": "char"
+		},		
+		"securityAnswer" :{
+			"type": "char"
+		}
+      }
+    }
+  }
+}

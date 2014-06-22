@@ -1,0 +1,183 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "/smart-api",
+  "produces": [
+    "application/octet-stream"
+  ],
+  "consumes": [
+    "application/octet-stream"
+  ],
+  "apis": [
+    {
+      "path": "/device",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Vai retornar todos os devices sincronizados",
+          "type": "Devices",
+          "nickname": "retrieveSyncDevices",
+          "responseMessages": [
+            {
+              "code": 404,
+              "message": "Não existem devices sincronizados"
+            },
+			{
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        },
+        {
+          "method": "GET",
+          "summary": "Retorna informações sobre um device especifico",
+          "type": "Devices",
+          "nickname": "retrieveDeviceById",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá apenas o id do device que será usado para consulta",
+              "required": true,
+              "type": "Device",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "message": "Não existem devices sincronizados"
+            },
+			{
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        },	
+        {
+          "method": "DELETE",
+          "summary": "Atualiza dados de um device especifico. Esta operação será usada para mudar o estado de um device e o tornar não sincronizado",
+          "type": "void",
+          "nickname": "updateSyncDevice",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com os dados do Device",
+              "required": true,
+              "type": "Device",
+              "paramType": "body"
+            }
+          ],		  
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro"
+            },
+			{
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        },
+        {
+          "method": "PUT",
+          "summary": "Atualiza dados de um device especifico",
+          "type": "void",
+          "nickname": "updateSyncDevice",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com os dados do Device",
+              "required": true,
+              "type": "Device",
+              "paramType": "body"
+            }
+          ],		  
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro"
+            },
+			{
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        }	
+      ]
+    },
+    {
+      "path": "/device/unsynchronized",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Vai retornar todos os devices que não estão sincronizados",
+          "type": "Devices",
+          "nickname": "retrieveUnSyncDevices",
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Enviar mensagem de erro"
+            },
+			{
+              "code": 404,
+              "message": "Não existem devices não sincronizados"
+            },
+			{
+              "code": 200,
+              "message": "retornar Response Class"
+            }
+          ]
+        }, 
+        {
+          "method": "PUT",
+          "summary": "Atualiza dados de um device especifico. Esta operação será usada para mudar o estado de um device e o tornar sincronizado",
+          "type": "void",
+          "nickname": "updateUnSyncDevice",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com os dados do Device",
+              "required": true,
+              "type": "Device",
+              "paramType": "body"
+            }
+          ],		  
+          "responseMessages": [
+            {
+              "code": 404,
+              "message": "Não existem devices sincronizados"
+            },
+			{
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Devices" : {
+		"id" : "Devices",
+		"properties": {
+			"Device": {
+				"type" : "Device"
+			}
+		}
+	},
+    "Device": {
+      "id": "Device",
+      "properties": {
+        "id": {
+          "type": "char"
+        },
+        "desc": {
+          "type": "char"
+        },
+		"state" :{
+			"type": "char"
+		}
+      }
+    }
+  }
+}

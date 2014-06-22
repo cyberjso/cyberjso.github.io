@@ -1,0 +1,213 @@
+{
+
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:8080",
+  "produces": [
+    "application/octet-stream"
+  ],
+  "consumes": [
+    "application/octet-stream"
+  ],
+  
+  "apis": [
+    {
+      "path": "/central",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Vai retornar informações da central",
+          "type": "CentralInfoProto",
+          "nickname": "retrieveCentralInfo",
+		  "produces": [
+			"application/octet-stream"
+		  ],
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 200,
+			  "message": "retorna Response class"
+            }
+          ]
+        }
+      ]
+    },
+	{
+		"path": "/central/mobileDevice",
+		"operations" : [
+			{
+			  "method": "POST",
+			  "summary": "Adiciona um novo dispositivo móvel na lista de telefone que podem usar esta central",
+			  "type": "void",
+			  "consumes": [
+				"application/octet-stream"
+			  ],
+			  "parameters": [
+				{
+				  "name": "body",
+				  "description": "Struct com os dados da wireless do usuário",
+				  "required": true,
+				  "type": "MobileDeviceProto",
+				  "paramType": "body"
+				}
+			  ],
+			  "nickname": "addMobileDevice", 
+			  "responseMessages": [
+				{
+				  "code": 500,
+				  "message": "Mensagem de erro com a causa"
+				},
+				{
+				  "code": 200,
+				  "message": ""
+				}
+			  ]
+			},
+			{
+			  "method": "PUT",
+			  "summary": "Atualiza um mobile device. Operação que será usada para bloquear/liberar novos dispositivos",
+			  "type": "void",
+			  "consumes": [
+				"application/octet-stream"
+			  ],
+			  "parameters": [
+				{
+				  "name": "body",
+				  "description": "Struct com os dados da wireless do usuário",
+				  "required": true,
+				  "type": "MobileDeviceProto",
+				  "paramType": "body"
+				}
+			  ],
+			  "nickname": "addMobileDevice", 
+			  "responseMessages": [
+				{
+				  "code": 500,
+				  "message": "Mensagem de erro com a causa"
+				},
+				{
+				  "code": 200,
+				  "message": ""
+				}
+			  ]
+			}		
+			
+		]
+	},
+	{
+      "path": "/central/setupWireless",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "Envia informações da rede wireless para a central",
+          "type": "void",
+		  "consumes": [
+            "application/octet-stream"
+		  ],
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com os dados da wireless do usuário",
+              "required": true,
+              "type": "WirelessUserInfoProto",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "sendWirelessInfo", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+            {
+              "code": 200,
+              "message": ""
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "path": "/central/firmware",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "Vai recebr um arquivo que irá conter informações para que o firmware da central seja atualizado",
+          "type": "void",
+		  "consumes": [
+            "application/octet-stream"
+		  ],
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Vai receber o arquivo com o novo firmware através de stream",
+              "required": "true",
+              "type": "notype",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "updateFirmware", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+            {
+              "code": 200,
+              "message": ""
+            }
+          ]
+        }
+      ]
+    }
+
+	
+	
+  ],
+  "models": {
+    "CentralInfoProto": {
+      "id": "CentralInfoProto",
+      "properties": {
+        "id": {
+          "type": "char",
+		  "required": true
+        },
+        "name": {
+          "type": "char",
+		  "required": true
+        }
+      }
+    },
+	"MobileDeviceProto" : {
+		"id" : "MobileDeviceProto",
+		"properties" : {
+			"uuid": {
+				"type" : "char"
+			},
+			"desc": {
+				"type" : "char"
+			},
+			"isAllowed" : {
+				"type" : "char"
+			}
+		}
+	},
+	"WirelessUserInfoProto": {
+      "id": "WirelessUserInfoProto",
+      "properties": {
+        "ssid": {
+          "type": "char",
+		  "required": true
+        },
+        "password": {
+          "type": "char",
+		  "required": true
+        }
+      }
+    }
+  }
+}

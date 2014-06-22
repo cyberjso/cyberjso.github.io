@@ -1,0 +1,453 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:8080",
+  "consumes": [
+    "application/octet-stream"
+  ],
+  "produces": [
+    "application/octet-stream"
+  ],
+  "apis": [
+    {
+      "path": "/user/scenario",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Retorna todos os cenários de um usuário",
+          "type": "Scenarios",
+          "nickname": "retrieveUserScenarios",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá o userOwner e o offset que será usado para paginação",
+              "required": true,
+              "type": "Scenarios",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 404,
+			  "message": "Não existem cenários para serem retornados"
+            },
+            {
+              "code": 200,
+			  "message": "retorna Response class"
+            }
+          ]
+        },
+		{
+	      "method": "POST",
+          "summary": "Vai inserir um novo cenário para um dado usuário",
+          "type": "Scenarios",
+		  "notes": "Será enviado apenas o cenário que está sendo adicionado. A central terá que inclui-lo aos demais caso existam. A central também será responsável por gerar um identificador unico para cada registro",
+		  "nickname": "createUserScenario",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com os dados do cenário que está sendo adicionado",
+              "required": true,
+              "type": "Scenarios",
+              "paramType": "body"
+            }
+          ],
+		  
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 200,
+			  "message": ""
+            }
+          ]		
+		},
+		{
+	      "method": "PUT",
+          "summary": "Atualiza dados de um cenário",
+          "type": "Scenarios",
+		  "notes": "Será enviado apenas o ambiente que está sendo atualizado. ",         
+		  "nickname": "udateUserEnvironment",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com os dados do cenário que está sendo atualizado",
+              "required": true,
+              "type": "Scenarios",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 200,
+			  "message": ""
+            }
+          ]		
+		},
+		{
+	      "method": "DELETE",
+          "summary": "Remove um cenário existente",
+          "type": "Scenarios",
+		  "nickname": "deleteUserEnvironment",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Struct com os dados do cenário que está sendo removido. Neste caso os dados do usuário mais o id do cenário",
+              "required": true,
+              "type": "Scenarios",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 200,
+			  "message": ""
+            }
+          ]		
+		}		
+      ]
+    },
+	{
+      "path": "/user/scenario/dependents",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Retorna todos os usuários que estão associados a um cenário",
+          "type": "ScenarioUsers",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá preeenchido apenas envId e userOwner",
+              "required": true,
+              "type": "ScenarioUsers",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "retrieveScenarioDependents", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+			{
+              "code": 404,
+              "message": "Não existem dependentes neste cenário"
+            },
+      			
+            {
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        },
+        {
+          "method": "PUT",
+          "summary": "Atualiza lista de dependentes associados a um cenário",
+          "type": "void",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá uma lista com todos os usuários associados ao ambiente",
+              "required": true,
+              "type": "ScenarioUsers",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "updateScenarioDependents", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            }, 			
+            {
+              "code": 200,
+              "message": ""
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "path": "/user/scenario/devices",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Retorna todos os devices que estão associados a um scenario",
+          "type": "ScenarioDevices",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá preeenchido apenas scenarioId e userOwner",
+              "required": true,
+              "type": "ScenarioDevices",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "retrieveScenarioDevices", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+			{
+              "code": 404,
+              "message": "Não existem devices neste cenário"
+            },
+      			
+            {
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        },
+        {
+          "method": "PUT",
+          "summary": "Atualiza lista de devices associados a um cenário",
+          "type": "void",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá uma lista com todos os devices associados ao cenário",
+              "required": true,
+              "type": "ScenarioDevices",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "updateScenarioDevices", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+            {
+              "code": 200,
+              "message": ""
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "path": "/user/scenario/schedule",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Retorna todos os agendamentos de um dados cenário",
+          "type": "ScenarioSchedule",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá preeenchido apenas scenarioId e userOwner",
+              "required": true,
+              "type": "ScenarioSchedule",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "retrieveScenarioSchedule", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+			{
+              "code": 404,
+              "message": "Não existe agendamento para o cenário"
+            },
+      			
+            {
+              "code": 200,
+              "message": "retorna Response class"
+            }
+          ]
+        },
+        {
+          "method": "POST",
+          "summary": "Inclui o agendamento a um cenário",
+		  "notes": "A central deve gerar um identificador unico para o agendamento que está sendo incluido",
+          "type": "void",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá o agendamento que será associado ao cenário",
+              "required": true,
+              "type": "ScenarioSchedule",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "updateScenarioDevices", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+            {
+              "code": 200,
+              "message": ""
+            }
+          ]
+        },
+		{
+          "method": "PUT",
+          "summary": "Atualiza um agendamento de um cenário",
+          "type": "void",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá o agendamento que será associado ao cenário",
+              "required": true,
+              "type": "ScenarioSchedule",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "updateScenarioDevices", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+            {
+              "code": 200,
+              "message": ""
+            }
+          ]
+        },
+		{
+          "method": "DELETE",
+          "summary": "Remove um agendamento de um cenário",
+          "type": "void",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Conterá o agendamento que será removido",
+              "required": true,
+              "type": "ScenarioSchedule",
+              "paramType": "body"
+            }
+          ],
+          "nickname": "updateScenarioDevices", 
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+            },
+            {
+              "code": 200,
+              "message": ""
+            }
+          ]
+        }				
+      ]
+    }
+	
+  ],
+  "models": {
+    "Scenarios": {
+      "id": "Scenarios",
+      "properties": {
+        "userOwner": {
+          "type": "char",
+		  "required": true
+        },
+        "offset": {
+          "type": "int32"
+        },
+		"scenario": {
+			"type" : "Scenario"
+		}
+      }
+    },
+	"Scenario": {
+      "id": "Scenario",
+      "properties": {
+        "id": {
+          "type": "char",
+		  "required": true
+        },
+        "desc": {
+          "type": "char"
+        },
+		"iconId" : {
+			"type": "int32"
+		}
+      }
+    },
+	"ScenarioUsers": {
+		"id": "ScenarioUsers",
+		"properties" : {
+			"scenarioId": {
+				"type" : "char"
+			},
+			"userOwner" : {
+				"type" : "char"
+			},
+			"users" : {	
+				"type" : "array"
+			}
+		}
+	},
+	"ScenarioDevices": {
+		"id": "ScenarioDevices",
+		"properties" : {
+			"scenarioId": {
+				"type" : "char"
+			},
+			"userOwner" : {
+				"type" : "char"
+			},
+			"devices" : {	
+				"type" : "array"
+			}
+		}
+	},
+	"ScenarioSchedule": {
+		"id": "ScenarioSchedule",
+		"properties" : {
+			"scenarioId": {
+				"type" : "char"
+			},
+			"userOwner" : {
+				"type" : "char"
+			},
+			"id" : {	
+				"type" : "char"
+			},
+			"desc" : {	
+				"type" : "char"
+			},
+			"id" : {	
+				"type" : "char"
+			},
+			"frequencyId" : {	
+				"type" : "int32"
+			},
+			"hrIni" : {	
+				"type" : "char"
+			},
+			"hrFim" : {	
+				"type" : "char"
+			},
+			"positionCoordintates": {
+				"type" : "char"
+			}
+		}
+	}	
+  }
+}
