@@ -3,19 +3,19 @@
   "swaggerVersion": "1.2",
   "apis": [
     {
-      "path": "/smart-api/central",
+      "path": "../smart-api/central",
       "description": "Operações que dizem respeito a central"
     },
     {
-      "path": "/smart-api/environment",
+      "path": "../smart-api/environment",
 	  "description" : "Operações que dizem respeito a ambientes"
     },
     {
-      "path": "/smart-api/user",
+      "path": "../smart-api/user",
       "description": "Operações que dizem respeito ao usuário"
     },
 	{
-      "path": "/smart-api/device",
+      "path": "../smart-api/device",
       "description" : "Operações que dizem respeito aos Devices"
     },
 	{
