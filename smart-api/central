@@ -36,6 +36,23 @@
       ]
     },
 	{
+      "path": "/central/test",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Operação que será usada para verificar se a central está ativa na rede",
+          "type": "void",
+          "nickname": "isCentralActive",
+          "responseMessages": [
+            {
+              "code": 200,
+			  "message": "Não retorna nenhuma mensagem"
+            }
+          ]
+        }
+      ]
+    },	
+	{
 		"path": "/central/mobileDevice",
 		"operations" : [
 			{
