@@ -19,7 +19,7 @@
       "description" : "Operações que dizem respeito aos Devices"
     },
 	{
-      "path": "/smart-api/scenario",
+      "path": "../smart-api/scenario",
       "description" : "Operações que dizem respeito aos Cenários"
     }
   ],
