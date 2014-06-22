@@ -40,7 +40,7 @@
       "operations": [
         {
           "method": "GET",
-          "summary": "Operação que será usada para verificar se a central está ativa na rede",
+          "summary": "Recurso que será usado para verificar se a central está ativa na rede",
           "type": "void",
           "nickname": "isCentralActive",
           "responseMessages": [
