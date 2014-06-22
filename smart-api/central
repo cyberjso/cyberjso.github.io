@@ -46,7 +46,7 @@
           "responseMessages": [
             {
               "code": 200,
-			  "message": "Não retorna nenhuma mensagem"
+			  "message": "Não retorna nenhuma mensagem."
             }
           ]
         }
