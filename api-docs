@@ -4,11 +4,11 @@
   "apis": [
     {
       "path": "http://cyberjso.github.io/smart-api/central",
-      "description": "Operações que dizem respeito a central"
+      "description": "OperaÃ§Ãµes que dizem respeito a central"
     },
     {
       "path": "http://cyberjso.github.io/smart-api/environment",
-	  "description" : "Operações que dizem respeito a ambientes"
+	  "description" : "OperaÃ§Ãµes que dizem respeito a ambientes"
     },
     {
       "path": "http://cyberjso.github.io/smart-api/user",
@@ -16,11 +16,11 @@
     },
 	{
       "path": "http://cyberjso.github.io/smart-api/device",
-      "description" : "Operações que dizem respeito aos Devices"
+      "description" : "OperaÃ§Ãµes que dizem respeito aos Devices"
     },
 	{
       "path": "http://cyberjso.github.io/smart-api/scenario",
-      "description" : "Operações que dizem respeito aos Cenários"
+      "description" : "OperaÃ§Ãµes que dizem respeito aos CenÃ¡rios"
     }
   ],
     "authorizations": {
