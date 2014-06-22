@@ -12,7 +12,7 @@
     },
     {
       "path": "http://cyberjso.github.io/smart-api/user",
-      "description": "Operações que dizem respeito ao usu�rio"
+      "description": "Operações que dizem respeito ao usuário"
     },
 	{
       "path": "http://cyberjso.github.io/smart-api/device",
