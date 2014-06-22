@@ -3,23 +3,23 @@
   "swaggerVersion": "1.2",
   "apis": [
     {
-      "path": "http://localhost:8080/smart-api/central",
+      "path": "smart-api/central",
       "description": "Operações que dizem respeito a central"
     },
     {
-      "path": "http://localhost:8080/smart-api/environment",
+      "path": "smart-api/environment",
 	  "description" : "Operações que dizem respeito a ambientes"
     },
     {
-      "path": "http://localhost:8080/smart-api/user",
+      "path": "smart-api/user",
       "description": "Operações que dizem respeito ao usuário"
     },
 	{
-      "path": "http://localhost:8080/smart-api/device",
+      "path": "smart-api/device",
       "description" : "Operações que dizem respeito aos Devices"
     },
 	{
-      "path": "http://localhost:8080/smart-api/scenario",
+      "path": "smart-api/scenario",
       "description" : "Operações que dizem respeito aos Cenários"
     }
   ],
