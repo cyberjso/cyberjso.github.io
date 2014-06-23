@@ -188,7 +188,7 @@
     "CentralInfoProto": {
       "id": "CentralInfoProto",
       "properties": {
-        "id": {
+        "uuid": {
           "type": "char",
 		  "required": true
         },

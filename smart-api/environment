@@ -14,14 +14,14 @@
         {
           "method": "GET",
           "summary": "Vai retornar todos os ambientes de um usuário",
-          "type": "Environments",
+          "type": "EnvironmentsProto",
           "nickname": "retrieveUserEnvironments",
 		  "parameters": [
             {
               "name": "body",
               "description": "Struct com os dados do usuário. Nesta operação apenas o atributo userOwner. Será preeenchido. Quanto ao offset ele define apartir de onde os dados devem ser retornados, caso seja necessário dividir em várias paginas.",
               "required": true,
-              "type": "Environments",
+              "type": "EnvironmentsProto",
               "paramType": "body"
             }
           ],
@@ -45,7 +45,7 @@
 		{
 	      "method": "POST",
           "summary": "Vai inserir um novo ambiente para um dado usuário",
-          "type": "Environments",
+          "type": "EnvironmentsProto",
 		  "notes": "Será enviado apenas o ambiente que está sendo adicionado. A central terá que inclui-lo aos demais caso existam. A central também será responsável por gerar um identificador unico para cada registro",         
 		  "nickname": "createUserEnvironment",
 		  "parameters": [
@@ -53,7 +53,7 @@
               "name": "body",
               "description": "Struct com os dados do ambiente que está sendo adicionado",
               "required": true,
-              "type": "Environments",
+              "type": "EnvironmentsProto",
               "paramType": "body"
             }
           ],
@@ -73,7 +73,7 @@
 		{
 	      "method": "PUT",
           "summary": "Atualiza dados de um ambiente",
-          "type": "Environments",
+          "type": "EnvironmentsProto",
 		  "notes": "Será enviado apenas o ambiente que está sendo atualizado. ",         
 		  "nickname": "udateUserEnvironment",
 		  "parameters": [
@@ -81,7 +81,7 @@
               "name": "body",
               "description": "Struct com os dados do ambiente que está sendo atualizado",
               "required": true,
-              "type": "Environments",
+              "type": "EnvironmentsProto",
               "paramType": "body"
             }
           ],
@@ -106,13 +106,13 @@
         {
           "method": "GET",
           "summary": "Retorna todos os usuários que estão associados a cada ambiente",
-          "type": "EnvironmentUsers",
+          "type": "EnvironmentProtoUsers",
 		  "parameters": [
             {
               "name": "body",
               "description": "Conterá preeenchido apenas envId e userOwner",
               "required": true,
-              "type": "EnvironmentUsers",
+              "type": "EnvironmentProtoUsers",
               "paramType": "body"
             }
           ],
@@ -142,7 +142,7 @@
               "name": "body",
               "description": "Conterá uma lista com todos os usuários associados ao ambiente",
               "required": true,
-              "type": "EnvironmentUsers",
+              "type": "EnvironmentProtoUsers",
               "paramType": "body"
             }
           ],
@@ -171,13 +171,13 @@
         {
           "method": "GET",
           "summary": "Retorna todos os devices que estão associados a um ambiente",
-          "type": "EnvironmentDevices",
+          "type": "EnvironmentProtoDevices",
 		  "parameters": [
             {
               "name": "body",
               "description": "Conterá preeenchido apenas envId e userOwner",
               "required": true,
-              "type": "EnvironmentDevices",
+              "type": "EnvironmentProtoDevices",
               "paramType": "body"
             }
           ],
@@ -207,7 +207,7 @@
               "name": "body",
               "description": "Conterá uma lista com todos os devices associados ao ambiente",
               "required": true,
-              "type": "EnvironmentDevices",
+              "type": "EnvironmentProtoDevices",
               "paramType": "body"
             }
           ],
@@ -231,8 +231,8 @@
     }
   ],
   "models": {
-    "Environments": {
-      "id": "Environments",
+    "EnvironmentsProto": {
+      "id": "EnvironmentsProto",
       "properties": {
         "userOwner": {
           "type": "char",
@@ -242,14 +242,14 @@
           "type": "int32"
         },
 		"environment": {
-			"type" : "Environment"
+			"type" : "EnvironmentProto"
 		}
       }
     },
-	"Environment": {
-      "id": "Environment",
+	"EnvironmentProto": {
+      "id": "EnvironmentProto",
       "properties": {
-        "id": {
+        "uuid": {
           "type": "char",
 		  "required": true
         },
@@ -261,8 +261,8 @@
 		}
       }
     },
-	"EnvironmentUsers": {
-		"id": "EnvironmentUsers",
+	"EnvironmentProtoUsers": {
+		"id": "EnvironmentProtoUsers",
 		"properties" : {
 			"envId": {
 				"type" : "char"
@@ -275,8 +275,8 @@
 			}
 		}
 	},
-	"EnvironmentDevices": {
-		"id": "EnvironmentDevices",
+	"EnvironmentProtoDevices": {
+		"id": "EnvironmentProtoDevices",
 		"properties" : {
 			"envId": {
 				"type" : "char"

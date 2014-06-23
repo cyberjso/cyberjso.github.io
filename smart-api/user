@@ -133,7 +133,7 @@
 		}
 	},
     "UserProto": {
-      "id": "UserProto",
+      "uuid": "UserProto",
       "properties": {
         "email": {
           "type": "char"

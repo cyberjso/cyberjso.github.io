@@ -14,14 +14,14 @@
         {
           "method": "GET",
           "summary": "Retorna todos os cenários de um usuário",
-          "type": "Scenarios",
+          "type": "ScenariosProto",
           "nickname": "retrieveUserScenarios",
 		  "parameters": [
             {
               "name": "body",
               "description": "Conterá o userOwner e o offset que será usado para paginação",
               "required": true,
-              "type": "Scenarios",
+              "type": "ScenariosProto",
               "paramType": "body"
             }
           ],
@@ -44,7 +44,7 @@
 		{
 	      "method": "POST",
           "summary": "Vai inserir um novo cenário para um dado usuário",
-          "type": "Scenarios",
+          "type": "ScenariosProto",
 		  "notes": "Será enviado apenas o cenário que está sendo adicionado. A central terá que inclui-lo aos demais caso existam. A central também será responsável por gerar um identificador unico para cada registro",
 		  "nickname": "createUserScenario",
 		  "parameters": [
@@ -52,7 +52,7 @@
               "name": "body",
               "description": "Struct com os dados do cenário que está sendo adicionado",
               "required": true,
-              "type": "Scenarios",
+              "type": "ScenariosProto",
               "paramType": "body"
             }
           ],
@@ -72,7 +72,7 @@
 		{
 	      "method": "PUT",
           "summary": "Atualiza dados de um cenário",
-          "type": "Scenarios",
+          "type": "ScenariosProto",
 		  "notes": "Será enviado apenas o ambiente que está sendo atualizado. ",         
 		  "nickname": "udateUserEnvironment",
 		  "parameters": [
@@ -80,7 +80,7 @@
               "name": "body",
               "description": "Struct com os dados do cenário que está sendo atualizado",
               "required": true,
-              "type": "Scenarios",
+              "type": "ScenariosProto",
               "paramType": "body"
             }
           ],
@@ -99,14 +99,14 @@
 		{
 	      "method": "DELETE",
           "summary": "Remove um cenário existente",
-          "type": "Scenarios",
+          "type": "ScenariosProto",
 		  "nickname": "deleteUserEnvironment",
 		  "parameters": [
             {
               "name": "body",
               "description": "Struct com os dados do cenário que está sendo removido. Neste caso os dados do usuário mais o id do cenário",
               "required": true,
-              "type": "Scenarios",
+              "type": "ScenariosProto",
               "paramType": "body"
             }
           ],
@@ -190,13 +190,13 @@
         {
           "method": "GET",
           "summary": "Retorna todos os devices que estão associados a um scenario",
-          "type": "ScenarioDevices",
+          "type": "ScenarioProtoDevices",
 		  "parameters": [
             {
               "name": "body",
               "description": "Conterá preeenchido apenas scenarioId e userOwner",
               "required": true,
-              "type": "ScenarioDevices",
+              "type": "ScenarioProtoDevices",
               "paramType": "body"
             }
           ],
@@ -226,7 +226,7 @@
               "name": "body",
               "description": "Conterá uma lista com todos os devices associados ao cenário",
               "required": true,
-              "type": "ScenarioDevices",
+              "type": "ScenarioProtoDevices",
               "paramType": "body"
             }
           ],
@@ -358,8 +358,8 @@
 	
   ],
   "models": {
-    "Scenarios": {
-      "id": "Scenarios",
+    "ScenariosProto": {
+      "id": "ScenariosProto",
       "properties": {
         "userOwner": {
           "type": "char",
@@ -369,12 +369,12 @@
           "type": "int32"
         },
 		"scenario": {
-			"type" : "Scenario"
+			"type" : "ScenarioProto"
 		}
       }
     },
-	"Scenario": {
-      "id": "Scenario",
+	"ScenarioProto": {
+      "id": "ScenarioProto",
       "properties": {
         "uuid": {
           "type": "char",
@@ -402,8 +402,8 @@
 			}
 		}
 	},
-	"ScenarioDevices": {
-		"id": "ScenarioDevices",
+	"ScenarioProtoDevices": {
+		"id": "ScenarioProtoDevices",
 		"properties" : {
 			"scenarioId": {
 				"type" : "char"

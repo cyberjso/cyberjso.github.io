@@ -15,7 +15,7 @@
         {
           "method": "GET",
           "summary": "Vai retornar todos os devices sincronizados",
-          "type": "Devices",
+          "type": "DevicesProto",
           "nickname": "retrieveSyncDevices",
           "responseMessages": [
             {
@@ -31,7 +31,7 @@
         {
           "method": "GET",
           "summary": "Retorna informações sobre um device especifico",
-          "type": "Devices",
+          "type": "DevicesProto",
           "nickname": "retrieveDeviceById",
 		  "parameters": [
             {
@@ -111,7 +111,7 @@
         {
           "method": "GET",
           "summary": "Vai retornar todos os devices que não estão sincronizados",
-          "type": "Devices",
+          "type": "DevicesProto",
           "nickname": "retrieveUnSyncDevices",
           "responseMessages": [
             {
@@ -157,18 +157,18 @@
     }
   ],
   "models": {
-    "Devices" : {
-		"id" : "Devices",
+    "DevicesProto" : {
+		"id" : "DevicesProto",
 		"properties": {
 			"Device": {
 				"type" : "Device"
 			}
 		}
 	},
-    "Device": {
-      "id": "Device",
+    "DeviceProto": {
+      "id": "DeviceProto",
       "properties": {
-        "id": {
+        "uuid": {
           "type": "char"
         },
         "desc": {
