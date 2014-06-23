@@ -130,13 +130,13 @@
         {
           "method": "GET",
           "summary": "Retorna todos os usuários que estão associados a um cenário",
-          "type": "ScenarioUsers",
+          "type": "ScenarioProtoUsers",
 		  "parameters": [
             {
               "name": "body",
               "description": "Conterá preeenchido apenas envId e userOwner",
               "required": true,
-              "type": "ScenarioUsers",
+              "type": "ScenarioProtoUsers",
               "paramType": "body"
             }
           ],
@@ -166,7 +166,7 @@
               "name": "body",
               "description": "Conterá uma lista com todos os usuários associados ao ambiente",
               "required": true,
-              "type": "ScenarioUsers",
+              "type": "ScenarioProtoUsers",
               "paramType": "body"
             }
           ],
@@ -250,13 +250,13 @@
         {
           "method": "GET",
           "summary": "Retorna todos os agendamentos de um dados cenário",
-          "type": "Schedules",
+          "type": "SchedulesProto",
 		  "parameters": [
             {
               "name": "body",
               "description": "Conterá preeenchido apenas scenarioId e userOwner",
               "required": true,
-              "type": "Schedules",
+              "type": "SchedulesProto",
               "paramType": "body"
             }
           ],
@@ -287,7 +287,7 @@
               "name": "body",
               "description": "Conterá o agendamento que será associado ao cenário",
               "required": true,
-              "type": "Schedules",
+              "type": "SchedulesProto",
               "paramType": "body"
             }
           ],
@@ -312,7 +312,7 @@
               "name": "body",
               "description": "Conterá o agendamento que será associado ao cenário",
               "required": true,
-              "type": "Schedules",
+              "type": "SchedulesProto",
               "paramType": "body"
             }
           ],
@@ -337,7 +337,7 @@
               "name": "body",
               "description": "Conterá o agendamento que será removido",
               "required": true,
-              "type": "Schedules",
+              "type": "SchedulesProto",
               "paramType": "body"
             }
           ],
@@ -388,8 +388,8 @@
 		}
       }
     },
-	"ScenarioUsers": {
-		"id": "ScenarioUsers",
+	"ScenarioProtoUsers": {
+		"id": "ScenarioProtoUsers",
 		"properties" : {
 			"scenarioId": {
 				"type" : "char"
@@ -416,8 +416,8 @@
 			}
 		}
 	},
-	"Schedules" : {
-		"id" : "Schedules" ,
+	"SchedulesProto" : {
+		"id" : "SchedulesProto" ,
 		"properties" :{
 			"scenarioId" : {
 				"type": "char"
@@ -426,12 +426,12 @@
 				"type" : "char"
 			},
 			"schedules" : {
-				"type" : "Schedule"
+				"type" : "ScheduleProto"
 			}		
 		}
 	},
-	"Schedule": {
-		"id": "Schedule",
+	"ScheduleProto": {
+		"id": "ScheduleProto",
 		"properties" : {
 			"scheduleUuid" : {
 				"type" : "char"
