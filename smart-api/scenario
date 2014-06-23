@@ -250,17 +250,17 @@
         {
           "method": "GET",
           "summary": "Retorna todos os agendamentos de um dados cenário",
-          "type": "ScenarioSchedule",
+          "type": "Schedules",
 		  "parameters": [
             {
               "name": "body",
               "description": "Conterá preeenchido apenas scenarioId e userOwner",
               "required": true,
-              "type": "ScenarioSchedule",
+              "type": "Schedules",
               "paramType": "body"
             }
           ],
-          "nickname": "retrieveScenarioSchedule", 
+          "nickname": "retrieveSchedules", 
           "responseMessages": [
             {
               "code": 500,
@@ -287,7 +287,7 @@
               "name": "body",
               "description": "Conterá o agendamento que será associado ao cenário",
               "required": true,
-              "type": "ScenarioSchedule",
+              "type": "Schedules",
               "paramType": "body"
             }
           ],
@@ -312,7 +312,7 @@
               "name": "body",
               "description": "Conterá o agendamento que será associado ao cenário",
               "required": true,
-              "type": "ScenarioSchedule",
+              "type": "Schedules",
               "paramType": "body"
             }
           ],
@@ -337,7 +337,7 @@
               "name": "body",
               "description": "Conterá o agendamento que será removido",
               "required": true,
-              "type": "ScenarioSchedule",
+              "type": "Schedules",
               "paramType": "body"
             }
           ],
@@ -376,7 +376,7 @@
 	"Scenario": {
       "id": "Scenario",
       "properties": {
-        "id": {
+        "uuid": {
           "type": "char",
 		  "required": true
         },
@@ -416,26 +416,34 @@
 			}
 		}
 	},
-	"ScenarioSchedule": {
-		"id": "ScenarioSchedule",
-		"properties" : {
-			"scenarioId": {
-				"type" : "char"
+	"Schedules" : {
+		"id" : "Schedules" ,
+		"properties" :{
+			"scenarioId" : {
+				"type": "char"
 			},
 			"userOwner" : {
 				"type" : "char"
 			},
-			"id" : {	
+			"schedules" : {
+				"type" : "Schedule"
+			}		
+		}
+	},
+	"Schedule": {
+		"id": "Schedule",
+		"properties" : {
+			"scheduleUuid" : {
 				"type" : "char"
 			},
 			"desc" : {	
 				"type" : "char"
 			},
-			"id" : {	
-				"type" : "char"
-			},
-			"frequencyId" : {	
+			"weekDays" : {	
 				"type" : "int32"
+			},
+			"devices" : {
+				"type" : "char"
 			},
 			"hrIni" : {	
 				"type" : "char"
