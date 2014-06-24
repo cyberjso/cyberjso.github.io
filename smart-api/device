@@ -162,7 +162,7 @@
 		"properties": {
 			"Device": {
 				"type" : "DeviceProto", 
-				"required" =  "true"
+				"required":  "true"
 			}
 		}
 	},
@@ -174,11 +174,11 @@
         },
         "desc": {
           "type": "char", 
-		  "required" =  "true"
+		  "required" : "true"
         },
 		"state" :{
 			"type": "char",
-			"required" =  "true"
+			"required":  "true"
 			
 		}
       }
