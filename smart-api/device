@@ -161,7 +161,8 @@
 		"id" : "DevicesProto",
 		"properties": {
 			"Device": {
-				"type" : "DeviceProto"
+				"type" : "DeviceProto", 
+				"required" =  "true"
 			}
 		}
 	},
@@ -172,10 +173,13 @@
           "type": "char"
         },
         "desc": {
-          "type": "char"
+          "type": "char", 
+		  "required" =  "true"
         },
 		"state" :{
-			"type": "char"
+			"type": "char",
+			"required" =  "true"
+			
 		}
       }
     }
