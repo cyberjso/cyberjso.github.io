@@ -161,7 +161,7 @@
 		"id" : "DevicesProto",
 		"properties": {
 			"Device": {
-				"type" : "Device"
+				"type" : "DeviceProto"
 			}
 		}
 	},
