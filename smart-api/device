@@ -38,7 +38,7 @@
               "name": "body",
               "description": "Conterá apenas o id do device que será usado para consulta",
               "required": true,
-              "type": "Device",
+              "type": "DeviceProto",
               "paramType": "body"
             }
           ],
@@ -63,7 +63,7 @@
               "name": "body",
               "description": "Struct com os dados do Device",
               "required": true,
-              "type": "Device",
+              "type": "DeviceProto",
               "paramType": "body"
             }
           ],		  
@@ -88,7 +88,7 @@
               "name": "body",
               "description": "Struct com os dados do Device",
               "required": true,
-              "type": "Device",
+              "type": "DeviceProto",
               "paramType": "body"
             }
           ],		  
@@ -138,7 +138,7 @@
               "name": "body",
               "description": "Struct com os dados do Device",
               "required": true,
-              "type": "Device",
+              "type": "DeviceProto",
               "paramType": "body"
             }
           ],		  
