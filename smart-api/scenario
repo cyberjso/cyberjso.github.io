@@ -277,71 +277,20 @@
             }
           ]
         },
-        {
-          "method": "POST",
-          "summary": "Inclui o agendamento a um cenário",
-		  "notes": "A central deve gerar um identificador unico para o agendamento que está sendo incluido",
-          "type": "void",
-		  "parameters": [
-            {
-              "name": "body",
-              "description": "Conterá o agendamento que será associado ao cenário",
-              "required": true,
-              "type": "SchedulesProto",
-              "paramType": "body"
-            }
-          ],
-          "nickname": "updateScenarioDevices", 
-          "responseMessages": [
-            {
-              "code": 500,
-              "message": "Mensagem de erro com a causa"
-            },
-            {
-              "code": 200,
-              "message": ""
-            }
-          ]
-        },
 		{
           "method": "PUT",
-          "summary": "Atualiza um agendamento de um cenário",
+          "summary": "Atualiza os agendamentos de um cenário",
           "type": "void",
 		  "parameters": [
             {
               "name": "body",
-              "description": "Conterá o agendamento que será associado ao cenário",
+              "description": "Atualiza a lista com os agendamentos de um cenário",
               "required": true,
               "type": "SchedulesProto",
               "paramType": "body"
             }
           ],
-          "nickname": "updateScenarioDevices", 
-          "responseMessages": [
-            {
-              "code": 500,
-              "message": "Mensagem de erro com a causa"
-            },
-            {
-              "code": 200,
-              "message": ""
-            }
-          ]
-        },
-		{
-          "method": "DELETE",
-          "summary": "Remove um agendamento de um cenário",
-          "type": "void",
-		  "parameters": [
-            {
-              "name": "body",
-              "description": "Conterá o agendamento que será removido",
-              "required": true,
-              "type": "SchedulesProto",
-              "paramType": "body"
-            }
-          ],
-          "nickname": "updateScenarioDevices", 
+          "nickname": "updateSchedules", 
           "responseMessages": [
             {
               "code": 500,
