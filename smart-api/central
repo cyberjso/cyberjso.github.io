@@ -15,9 +15,9 @@
       "operations": [
         {
           "method": "GET",
-          "summary": "Vai retornar informações da central",
-          "type": "CentralInfoProto",
-          "nickname": "retrieveCentralInfo",
+          "summary": "Vai retornar as centrais do usuário",
+          "type": "CentralsProto",
+          "nickname": "retrieveCentrals",
 		  "produces": [
 			"application/octet-stream"
 		  ],
@@ -185,6 +185,18 @@
 	
   ],
   "models": {
+	"CentralsProto" : {
+		"id" : "CentralsProto",
+		"properties" : {
+			"userOwner" : {
+				"type" : "char",
+				"required" : true
+			},
+			"centrals" : {
+				"type" : "CentralInfoProto"
+			}
+		}
+	},
     "CentralInfoProto": {
       "id": "CentralInfoProto",
       "properties": {
