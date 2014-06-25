@@ -25,14 +25,46 @@
             {
               "code": 500,
               "message": "Mensagem de erro com a causa"
-              
             },
+            {
+              "code": 404,
+			  "message": "Quando o usuario não ter nenhuma central configurada"
+            },			
             {
               "code": 200,
 			  "message": "retorna Response class"
             }
           ]
-        }
+        },
+        {
+          "method": "PUT",
+          "summary": "Vai atualizar as centrais que o usuário possui possui",
+          "type": "void",
+          "nickname": "updateCentrals",
+		  "parameters": [
+			{
+			  "name": "body",
+			  "description": "",
+			  "required": true,
+			  "type": "CentralsProto",
+			  "paramType": "body"
+			}
+		  ],		  
+		  "consumes": [
+			"application/octet-stream"
+		  ],
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 200,
+			  "message": ""
+            }
+          ]
+        }		
       ]
     },
 	{
