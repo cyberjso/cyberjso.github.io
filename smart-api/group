@@ -13,7 +13,7 @@
       "operations": [
         {
           "method": "GET",
-          "summary": "Vai retornar todos os grupos de um usuário",
+          "summary": "Vai retornar todos os grupos em que o usuário está contido",
           "type": "GroupsProto",
           "nickname": "retrieveUserGroups",
 		  "parameters": [
