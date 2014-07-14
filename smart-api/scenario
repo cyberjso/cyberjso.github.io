@@ -13,7 +13,7 @@
       "operations": [
         {
           "method": "GET",
-          "summary": "Retorna todos os cenários de um usuário",
+          "summary": "Retorna todos os cenários aos quais o usuário tem acessso",
           "type": "ScenariosProto",
           "nickname": "retrieveUserScenarios",
 		  "parameters": [
@@ -34,6 +34,36 @@
             {
               "code": 404,
 			  "message": "Não existem cenários para serem retornados"
+            },
+            {
+              "code": 200,
+			  "message": "retorna Response class"
+            }
+          ]
+        },
+		{
+          "method": "GET",
+          "summary": "Retorna dados de um cenário especifico",
+          "type": "ScenarioProto",
+          "nickname": "retrieve",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Retorna dados de um cenário baseado no seu identificador",
+              "required": true,
+              "type": "ScenarioProto",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 404,
+			  "message": "O cenário pesquisado não existe"
             },
             {
               "code": 200,
