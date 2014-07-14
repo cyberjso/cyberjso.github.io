@@ -9,7 +9,7 @@
   ],
   "apis": [
     {
-      "path": "/user/group",
+      "path": "/environment/group",
       "operations": [
         {
           "method": "GET",
@@ -19,7 +19,7 @@
 		  "parameters": [
             {
               "name": "body",
-              "description": "Struct com os dados do usuário. Nesta operação apenas o atributo userId. Será preeenchido. Quanto ao offset ele define apartir de onde os dados devem ser retornados, caso seja necessário dividir em várias paginas.",
+              "description": "Struct com os dados do usuário. Nesta operação apenas o atributo userId. Será preeenchido. Quanto ao offset ele define apartir de onde os dados devem ser retornados, caso seja necessário dividir em várias paginas. Nesta operação não é necessário retornar devices e usuários associados.",
               "required": true,
               "type": "GroupsProto",
               "paramType": "body"
@@ -46,7 +46,7 @@
 	      "method": "POST",
           "summary": "Vai inserir um novo grupo para um dado usuário",
           "type": "GroupsProto",
-		  "notes": "Será enviado apenas o grupo que está sendo adicionado. A central terá que inclui-lo aos demais caso existam. A central também será responsável por gerar um identificador unico para cada registro",         
+		  "notes": "Será enviado apenas o grupo que está sendo adicionado. ",
 		  "nickname": "createUserEnvironment",
 		  "parameters": [
             {
@@ -72,16 +72,16 @@
 		},
 		{
 	      "method": "PUT",
-          "summary": "Atualiza dados de um ambiente",
-          "type": "GroupsProto",
-		  "notes": "Será enviado apenas o ambiente que está sendo atualizado. ",         
-		  "nickname": "udateUserEnvironment",
+          "summary": "Atualiza dados de um grupo especifico",
+          "type": "GroupProto",
+		  "notes": "Será enviado apenas o ambiente que está sendo atualizado. ",
+		  "nickname": "updateGroup",
 		  "parameters": [
             {
               "name": "body",
-              "description": "Struct com os dados do ambiente que está sendo atualizado",
+              "description": "Struct com os dados do grupo que está sendo atualizado",
               "required": true,
-              "type": "GroupsProto",
+              "type": "GroupProto",
               "paramType": "body"
             }
           ],
@@ -98,135 +98,6 @@
             }
           ]		
 		}
-      ]
-    },
-	{
-      "path": "/user/environment/dependents",
-      "operations": [
-        {
-          "method": "GET",
-          "summary": "Retorna todos os usuários que estão associados a cada ambiente",
-          "type": "EnvironmentProtoUsers",
-		  "parameters": [
-            {
-              "name": "body",
-              "description": "Conterá preeenchido apenas envId e userOwner",
-              "required": true,
-              "type": "EnvironmentProtoUsers",
-              "paramType": "body"
-            }
-          ],
-          "nickname": "retrieveEnvironmentDependents", 
-          "responseMessages": [
-            {
-              "code": 500,
-              "message": "Mensagem de erro com a causa"
-            },
-			{
-              "code": 404,
-              "message": "Não existem dependentes neste ambiente"
-            },
-      			
-            {
-              "code": 200,
-              "message": "retorna Response class"
-            }
-          ]
-        },
-        {
-          "method": "PUT",
-          "summary": "Atualiza lista de dependentes associados a um ambiente",
-          "type": "void",
-		  "parameters": [
-            {
-              "name": "body",
-              "description": "Conterá uma lista com todos os usuários associados ao ambiente",
-              "required": true,
-              "type": "EnvironmentProtoUsers",
-              "paramType": "body"
-            }
-          ],
-          "nickname": "updateEnvironmentDependents", 
-          "responseMessages": [
-            {
-              "code": 500,
-              "message": "Mensagem de erro com a causa"
-            },
-			{
-              "code": 404,
-              "message": "Não existem dependentes neste ambiente"
-            },
-      			
-            {
-              "code": 200,
-              "message": "retorna Response class"
-            }
-          ]
-        }
-      ]
-    },
-	{
-      "path": "/user/environment/devices",
-      "operations": [
-        {
-          "method": "GET",
-          "summary": "Retorna todos os devices que estão associados a um ambiente",
-          "type": "EnvironmentProtoDevices",
-		  "parameters": [
-            {
-              "name": "body",
-              "description": "Conterá preeenchido apenas envId e userOwner",
-              "required": true,
-              "type": "EnvironmentProtoDevices",
-              "paramType": "body"
-            }
-          ],
-          "nickname": "retrieveEnvironmentDevices", 
-          "responseMessages": [
-            {
-              "code": 500,
-              "message": "Mensagem de erro com a causa"
-            },
-			{
-              "code": 404,
-              "message": "Não existem devices neste ambiente"
-            },
-      			
-            {
-              "code": 200,
-              "message": "retorna Response class"
-            }
-          ]
-        },
-        {
-          "method": "PUT",
-          "summary": "Atualiza lista de devices associados a um ambiente",
-          "type": "void",
-		  "parameters": [
-            {
-              "name": "body",
-              "description": "Conterá uma lista com todos os devices associados ao ambiente",
-              "required": true,
-              "type": "EnvironmentProtoDevices",
-              "paramType": "body"
-            }
-          ],
-          "nickname": "updateEnvironmentDevices", 
-          "responseMessages": [
-            {
-              "code": 500,
-              "message": "Mensagem de erro com a causa"
-            },
-			{
-              "code": 404,
-              "message": "Não existem dependentes neste ambiente"
-            },
-            {
-              "code": 200,
-              "message": "retorna Response class"
-            }
-          ]
-        }
       ]
     }
   ],
