@@ -1,5 +1,5 @@
 ﻿{
-  "apiVersion": "1.0.0",
+  "apiVersion": "1.0.1",
   "swaggerVersion": "1.2",
   "apis": [
     {
@@ -13,6 +13,10 @@
     {
       "path": "http://cyberjso.github.io/smart-api/user",
       "description": "Operações que dizem respeito ao usuário"
+    },
+	{
+      "path": "http://cyberjso.github.io/smart-api/group",
+      "description" : "Operações que dizem respeito aos grupos"
     },
 	{
       "path": "http://cyberjso.github.io/smart-api/device",
