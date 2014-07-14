@@ -7,10 +7,6 @@
       "description": "Operações que dizem respeito a central"
     },
     {
-      "path": "http://cyberjso.github.io/smart-api/environment",
-	  "description" : "Operações que dizem respeito a ambientes"
-    },
-    {
       "path": "http://cyberjso.github.io/smart-api/user",
       "description": "Operações que dizem respeito ao usuário"
     },
