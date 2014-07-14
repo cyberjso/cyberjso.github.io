@@ -1,5 +1,5 @@
 {
-  "apiVersion": "1.0.0",
+  "apiVersion": "1.0.1",
   "swaggerVersion": "1.2",
   "basePath": "/smart-api",
   "produces": [
@@ -176,7 +176,7 @@
           "type": "char", 
 		  "required" : "true"
         },
-		"pass":  {
+		"password":  {
 			"type": "char"
 		},
 		"blockedUsers" : {

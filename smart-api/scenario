@@ -9,7 +9,7 @@
   ],
   "apis": [
     {
-      "path": "/user/scenario",
+      "path": "/environment/scenario",
       "operations": [
         {
           "method": "GET",
@@ -334,6 +334,12 @@
         },
 		"iconId" : {
 			"type": "int32"
+		},
+		"users" : {
+			"type" : "array"
+		},
+		"devices" : {
+			"type" : "array"
 		}
       }
     },
