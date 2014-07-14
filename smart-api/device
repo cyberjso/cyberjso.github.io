@@ -10,7 +10,7 @@
   ],
   "apis": [
     {
-      "path": "/device",
+      "path": "environment/device",
       "operations": [
         {
           "method": "GET",
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "path": "/device/unsynchronized",
+      "path": "environment/device/unsynchronized",
       "operations": [
         {
           "method": "GET",
@@ -176,6 +176,9 @@
           "type": "char", 
 		  "required" : "true"
         },
+		"pass":  {
+			"type": "char"
+		},
 		"blockedUsers" : {
 			"type" : "array"
 		},
