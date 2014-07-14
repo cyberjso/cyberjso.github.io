@@ -176,10 +176,12 @@
           "type": "char", 
 		  "required" : "true"
         },
+		"blockedUsers" : {
+			"type" : "array"
+		},
 		"state" :{
 			"type": "char",
 			"required":  "true"
-			
 		}
       }
     }
