@@ -125,7 +125,7 @@
       ]
     },
 	{
-      "path": "/user/scenario/schedule",
+      "path": "/environment/scenario/schedule",
       "operations": [
         {
           "method": "GET",
