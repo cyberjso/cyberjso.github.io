@@ -72,7 +72,7 @@
 			  "message": "retorna Response class"
             }
           ]
-        }		
+        },	
 		{
 	      "method": "POST",
           "summary": "Vai inserir um novo grupo para um dado usuário",
@@ -100,14 +100,8 @@
 			  "message": "retorna Response class"
             }
           ]		
-		}
-
-      ]
-    },
-	{
-	"path": "/environment/group",
-      "operations": [
-	  	{
+		},
+		{
 	      "method": "PUT",
           "summary": "Atualiza dados de um grupo especifico",
           "type": "GroupProto",
@@ -135,8 +129,9 @@
             }
           ]		
 		}
-	  ]
-	}
+
+      ]
+    }
   ],
   "models": {
     "GroupsProto": {
