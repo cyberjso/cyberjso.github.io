@@ -9,7 +9,7 @@
   ],
   "apis": [
     {
-      "path": "/environment/groups",
+      "path": "/environment/group",
       "operations": [
         {
           "method": "GET",
@@ -129,7 +129,6 @@
             }
           ]		
 		}
-
       ]
     }
   ],
@@ -169,34 +168,6 @@
 			"type" : "array"
 		}
       }
-    },
-	"EnvironmentProtoUsers": {
-		"id": "EnvironmentProtoUsers",
-		"properties" : {
-			"envId": {
-				"type" : "char"
-			},
-			"userOwner" : {
-				"type" : "char"
-			},
-			"users" : {	
-				"type" : "array"
-			}
-		}
-	},
-	"EnvironmentProtoDevices": {
-		"id": "EnvironmentProtoDevices",
-		"properties" : {
-			"envId": {
-				"type" : "char"
-			},
-			"userOwner" : {
-				"type" : "char"
-			},
-			"devices" : {	
-				"type" : "array"
-			}
-		}
-	}	
+    }	
   }
 }
