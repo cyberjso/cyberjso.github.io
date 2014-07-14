@@ -9,7 +9,7 @@
   ],
   "apis": [
     {
-      "path": "/environment/group",
+      "path": "/environment/groups",
       "operations": [
         {
           "method": "GET",
@@ -69,8 +69,14 @@
 			  "message": "retorna Response class"
             }
           ]		
-		},
-		{
+		}
+
+      ]
+    },
+	{
+	"path": "/environment/group",
+      "operations": [
+	  	{
 	      "method": "PUT",
           "summary": "Atualiza dados de um grupo especifico",
           "type": "GroupProto",
@@ -98,8 +104,8 @@
             }
           ]		
 		}
-      ]
-    }
+	  ]
+	}
   ],
   "models": {
     "GroupsProto": {
