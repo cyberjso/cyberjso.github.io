@@ -42,6 +42,37 @@
             }
           ]
         },
+        {
+          "method": "GET",
+          "summary": "Vai retornar dados de um grupo especifico",
+          "type": "GroupProto",
+          "nickname": "retrieveGroup",
+		  "parameters": [
+            {
+              "name": "body",
+              "description": "Contém o identificador do grupo",
+              "required": true,
+              "type": "GroupProto",
+              "paramType": "body"
+            }
+          ],
+		  
+          "responseMessages": [
+            {
+              "code": 500,
+              "message": "Mensagem de erro com a causa"
+              
+            },
+            {
+              "code": 404,
+			  "message": "O grupo não existe"
+            },
+            {
+              "code": 200,
+			  "message": "retorna Response class"
+            }
+          ]
+        }		
 		{
 	      "method": "POST",
           "summary": "Vai inserir um novo grupo para um dado usuário",
