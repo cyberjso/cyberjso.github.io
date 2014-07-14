@@ -3,10 +3,6 @@
   "swaggerVersion": "1.2",
   "apis": [
     {
-      "path": "http://cyberjso.github.io/smart-api/central",
-      "description": "Operações que dizem respeito a central"
-    },
-    {
       "path": "http://cyberjso.github.io/smart-api/environment",
       "description": "Operações que dizem  respeito aos environments do usuário"
     },
